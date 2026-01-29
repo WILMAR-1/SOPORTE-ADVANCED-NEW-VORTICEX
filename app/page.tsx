@@ -1,40 +1,41 @@
 import Link from "next/link"
-import { GraduationCap, Shield, Headphones, Clock, CheckCircle, Users, Zap, Lock } from "lucide-react"
+import { GraduationCap, Shield, Headset, Clock, CheckCircle, Users, Zap, Lock } from "lucide-react"
 import Footer from "@/components/ui/Footer"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#002855] via-[#003876] to-[#004a99]">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-white/10">
+      <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center gap-4">
-              <div className="bg-white p-2 rounded-xl">
-                <img
-                  src="https://itla.edu.do/wp-content/uploads/2021/05/Logo-ITLA.png"
-                  alt="ITLA Logo"
-                  className="h-10 w-auto"
-                />
-              </div>
+          <div className="flex justify-between items-center h-16">
+            <Link href="/" className="flex items-center gap-3 group">
+              <img
+                src="/itla-logo.png"
+                alt="ITLA Logo"
+                className="h-14 w-auto"
+              />
               <div className="hidden sm:block">
-                <h1 className="text-white font-bold text-lg">Centro de Soporte</h1>
-                <p className="text-blue-200 text-xs">Instituto Tecnológico de Las Américas</p>
+                <h1 className="text-[#003d7f] font-bold text-base">Centro de Soporte</h1>
+                <p className="text-gray-500 text-xs">ITLA</p>
               </div>
-            </div>
-            <nav className="flex items-center gap-3">
+            </Link>
+            <nav className="flex items-center gap-2">
               <Link
                 href="/estudiante"
-                className="px-5 py-2.5 bg-[#f9b233] hover:bg-[#e6a020] text-[#002855] font-bold rounded-xl transition-all text-sm shadow-lg hover:shadow-xl"
+                className="px-4 py-2 bg-[#003d7f] hover:bg-[#002855] text-white font-semibold rounded-lg transition-all text-sm shadow-md hover:shadow-lg flex items-center gap-2"
               >
-                Portal Estudiante
+                <GraduationCap className="w-4 h-4" />
+                <span className="hidden sm:inline">Portal Estudiante</span>
+                <span className="sm:hidden">Estudiante</span>
               </Link>
               <Link
                 href="/admin"
-                className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl transition-all text-sm border border-white/20 flex items-center gap-2"
+                className="px-4 py-2 bg-[#dc2626] hover:bg-[#b91c1c] text-white font-semibold rounded-lg transition-all text-sm shadow-md hover:shadow-lg flex items-center gap-2"
               >
                 <Lock className="w-4 h-4" />
-                Acceso Admin
+                <span className="hidden sm:inline">Acceso Admin</span>
+                <span className="sm:hidden">Admin</span>
               </Link>
             </nav>
           </div>
@@ -44,48 +45,55 @@ export default function HomePage() {
       {/* Hero Section */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16 animate-fadeIn">
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight text-balance">
-            Soporte Estudiantil
-            <span className="block text-[#f9b233]">Rápido y Eficiente</span>
+          <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tight text-balance">
+            <span className="relative inline-block">
+              <span className="text-[#0350a3] bg-clip-text" style={{maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)'}}>Soporte Estudiantil</span>
+              <Headset className="absolute -right-6 md:-right-10 -top-2 w-8 h-8 md:w-12 md:h-12 text-[#dc2626] rotate-12 drop-shadow-md" />
+            </span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
-            Resolvemos tus problemas técnicos y académicos. Crea una solicitud y nuestro equipo te ayudará en el menor
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="h-1 w-12 bg-gradient-to-r from-[#003d7f] to-[#003d7f]/50 rounded-full"></div>
+            <span className="text-muted-foreground font-semibold text-lg md:text-xl tracking-wide">Rapido y Eficiente</span>
+            <div className="h-1 w-12 bg-gradient-to-l from-[#dc2626] to-[#dc2626]/50 rounded-full"></div>
+          </div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Resolvemos tus problemas tecnicos y academicos. Crea una solicitud y nuestro equipo te ayudara en el menor
             tiempo posible.
           </p>
         </div>
 
-        {/* Portal Cards */}
+        {/* Portal Cards - Yin-Yang Design */}
         <div className="grid md:grid-cols-2 gap-8 mb-20">
-          {/* Student Portal Card */}
+          {/* Student Portal Card - Tema Azul */}
           <Link href="/estudiante" className="group">
-            <div className="bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-[#f9b233]">
+            <div className="bg-card rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-[#003d7f] h-full flex flex-col">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#003876] to-[#004a99] rounded-2xl flex items-center justify-center shadow-lg">
+                <div className="w-16 h-16 bg-[#003d7f] rounded-2xl flex items-center justify-center shadow-lg">
                   <GraduationCap className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black text-[#002855]">Portal Estudiante</h3>
-                  <p className="text-slate-500 font-medium">Crea y da seguimiento a tus solicitudes</p>
+                  <h3 className="text-2xl font-black text-[#003d7f]">Portal Estudiante</h3>
+                  <p className="text-muted-foreground font-medium">Crea y da seguimiento a tus solicitudes</p>
                 </div>
               </div>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-center gap-3 text-slate-600">
-                  <CheckCircle className="w-5 h-5 text-emerald-500" />
-                  <span>Recuperación de contraseñas (SIGEI, Correo, Plataforma)</span>
+              <ul className="space-y-3 mb-6 flex-1">
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-[#003d7f] flex-shrink-0" />
+                  <span>Recuperacion de contrasenas (SIGEI, Correo, Plataforma)</span>
                 </li>
-                <li className="flex items-center gap-3 text-slate-600">
-                  <CheckCircle className="w-5 h-5 text-emerald-500" />
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-[#003d7f] flex-shrink-0" />
                   <span>Problemas de redes, equipos y software</span>
                 </li>
-                <li className="flex items-center gap-3 text-slate-600">
-                  <CheckCircle className="w-5 h-5 text-emerald-500" />
-                  <span>Solicitudes académicas y más</span>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-[#003d7f] flex-shrink-0" />
+                  <span>Solicitudes academicas y mas</span>
                 </li>
               </ul>
-              <div className="flex items-center justify-between">
-                <span className="text-[#003876] font-bold group-hover:underline">Acceder al portal</span>
-                <div className="w-10 h-10 bg-[#f9b233] rounded-full flex items-center justify-center group-hover:translate-x-2 transition-transform shadow-md">
-                  <svg className="w-5 h-5 text-[#002855]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center justify-between pt-4 border-t border-border">
+                <span className="text-[#003d7f] font-bold group-hover:underline">Acceder al portal</span>
+                <div className="w-10 h-10 bg-[#dc2626] rounded-full flex items-center justify-center group-hover:translate-x-2 transition-transform shadow-md">
+                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -93,35 +101,35 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* Admin Portal Card */}
+          {/* Admin Portal Card - Tema Rojo */}
           <Link href="/admin" className="group">
-            <div className="bg-[#002855] rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-[#f9b233]">
+            <div className="bg-card rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-[#dc2626] h-full flex flex-col">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#f9b233] to-[#e6a020] rounded-2xl flex items-center justify-center shadow-lg">
-                  <Shield className="w-8 h-8 text-[#002855]" />
+                <div className="w-16 h-16 bg-[#dc2626] rounded-2xl flex items-center justify-center shadow-lg">
+                  <Shield className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black text-white">Portal Administrativo</h3>
-                  <p className="text-blue-200 font-medium">Solo personal autorizado</p>
+                  <h3 className="text-2xl font-black text-[#dc2626]">Portal Administrativo</h3>
+                  <p className="text-muted-foreground font-medium">Gestion de tickets y soporte tecnico</p>
                 </div>
               </div>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-center gap-3 text-blue-100">
-                  <CheckCircle className="w-5 h-5 text-[#f9b233]" />
+              <ul className="space-y-3 mb-6 flex-1">
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-[#dc2626] flex-shrink-0" />
                   <span>Dashboard en tiempo real</span>
                 </li>
-                <li className="flex items-center gap-3 text-blue-100">
-                  <CheckCircle className="w-5 h-5 text-[#f9b233]" />
-                  <span>Gestión por roles y categorías</span>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-[#dc2626] flex-shrink-0" />
+                  <span>Gestion por roles y categorias</span>
                 </li>
-                <li className="flex items-center gap-3 text-blue-100">
-                  <CheckCircle className="w-5 h-5 text-[#f9b233]" />
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle className="w-5 h-5 text-[#dc2626] flex-shrink-0" />
                   <span>Reportes y descarga de PDF</span>
                 </li>
               </ul>
-              <div className="flex items-center justify-between">
-                <span className="text-[#f9b233] font-bold group-hover:underline">Iniciar sesión segura</span>
-                <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center group-hover:translate-x-2 transition-transform">
+              <div className="flex items-center justify-between pt-4 border-t border-border">
+                <span className="text-[#dc2626] font-bold group-hover:underline">Iniciar sesion segura</span>
+                <div className="w-10 h-10 bg-[#003d7f] rounded-full flex items-center justify-center group-hover:translate-x-2 transition-transform shadow-md">
                   <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                   </svg>
@@ -133,48 +141,28 @@ export default function HomePage() {
 
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/10">
-            <Headphones className="w-8 h-8 text-[#f9b233] mx-auto mb-3" />
-            <p className="text-3xl font-black text-white">24/7</p>
-            <p className="text-blue-200 text-sm font-medium">Soporte Disponible</p>
+          <div className="bg-card backdrop-blur-sm rounded-2xl p-6 text-center border border-border">
+            <Headset className="w-8 h-8 text-primary mx-auto mb-3" />
+            <p className="text-3xl font-black text-foreground">24/7</p>
+            <p className="text-muted-foreground text-sm font-medium">Soporte Disponible</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/10">
-            <Clock className="w-8 h-8 text-[#f9b233] mx-auto mb-3" />
-            <p className="text-3xl font-black text-white">{"<"}24h</p>
-            <p className="text-blue-200 text-sm font-medium">Tiempo de Respuesta</p>
+          <div className="bg-card backdrop-blur-sm rounded-2xl p-6 text-center border border-border">
+            <Clock className="w-8 h-8 text-primary mx-auto mb-3" />
+            <p className="text-3xl font-black text-foreground">{"<"}24h</p>
+            <p className="text-muted-foreground text-sm font-medium">Tiempo de Respuesta</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/10">
-            <Zap className="w-8 h-8 text-[#f9b233] mx-auto mb-3" />
-            <p className="text-3xl font-black text-white">95%</p>
-            <p className="text-blue-200 text-sm font-medium">Casos Resueltos</p>
+          <div className="bg-card backdrop-blur-sm rounded-2xl p-6 text-center border border-border">
+            <Zap className="w-8 h-8 text-primary mx-auto mb-3" />
+            <p className="text-3xl font-black text-foreground">95%</p>
+            <p className="text-muted-foreground text-sm font-medium">Casos Resueltos</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/10">
-            <Users className="w-8 h-8 text-[#f9b233] mx-auto mb-3" />
-            <p className="text-3xl font-black text-white">5000+</p>
-            <p className="text-blue-200 text-sm font-medium">Estudiantes Atendidos</p>
+          <div className="bg-card backdrop-blur-sm rounded-2xl p-6 text-center border border-border">
+            <Users className="w-8 h-8 text-primary mx-auto mb-3" />
+            <p className="text-3xl font-black text-foreground">5000+</p>
+            <p className="text-muted-foreground text-sm font-medium">Estudiantes Atendidos</p>
           </div>
         </div>
 
-        {/* Roles Info */}
-        <div className="mt-16 bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-          <h3 className="text-xl font-bold text-white mb-6 text-center">Equipo de Soporte</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {[
-              { name: "Supremo Digital", color: "bg-amber-500" },
-              { name: "Globalizador", color: "bg-purple-500" },
-              { name: "Operaciones TICs", color: "bg-blue-500" },
-              { name: "Tecnología IT", color: "bg-cyan-500" },
-              { name: "DTE", color: "bg-emerald-500" },
-              { name: "CiberSeguridad", color: "bg-red-500" },
-              { name: "Pasantes", color: "bg-slate-500" },
-            ].map((role) => (
-              <div key={role.name} className="text-center">
-                <div className={`w-3 h-3 ${role.color} rounded-full mx-auto mb-2`}></div>
-                <p className="text-blue-200 text-xs font-medium">{role.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </main>
 
       <Footer />

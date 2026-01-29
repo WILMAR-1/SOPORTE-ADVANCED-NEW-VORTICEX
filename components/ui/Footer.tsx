@@ -1,106 +1,188 @@
 "use client";
 
 import React from 'react';
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Instagram,
+  Youtube,
+  Linkedin,
+  Crown,
+  Globe,
+  Server,
+  Cpu,
+  GraduationCap,
+  ShieldCheck,
+  UserCheck
+} from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { FaWhatsapp } from 'react-icons/fa';
+
+const supportTeams = [
+  { name: "Supremo Digital", icon: Crown },
+  { name: "Globalizador", icon: Globe },
+  { name: "Operaciones TICs", icon: Server },
+  { name: "Tecnologia IT", icon: Cpu },
+  { name: "DTE", icon: GraduationCap },
+  { name: "CiberSeguridad", icon: ShieldCheck },
+  { name: "Pasantes", icon: UserCheck },
+];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const pathname = usePathname();
-
-  // No hash links exist in app/page.tsx, so no scrolling logic needed for now.
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-[#002855] text-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand Column */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img src="https://itla.edu.do/wp-content/uploads/2021/05/Logo-ITLA.png" alt="ITLA Logo" className="h-10 w-auto" />
-              <span className="text-2xl font-bold text-white">ITLA Soporte Estudiantil</span>
+              <img
+                src="/itla-logo-white.png"
+                alt="ITLA Logo"
+                className="h-10 w-auto"
+              />
+              <span className="text-xl font-bold text-white">ITLA Soporte</span>
             </div>
-            <p className="text-gray-400 mb-4">
-              Plataforma de soporte para estudiantes del ITLA.
+            <p className="text-gray-400 text-sm mb-4">
+              Plataforma de soporte tecnico y academico para estudiantes del Instituto Tecnologico de Las Americas.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors" aria-label="Seguir en Facebook">
-                <Facebook className="h-5 w-5" aria-hidden="true" />
+              <a
+                href="https://www.facebook.com/ITLARD/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors" aria-label="Seguir en Twitter">
-                <Twitter className="h-5 w-5" aria-hidden="true" />
+              <a
+                href="https://www.instagram.com/itlard/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors" aria-label="Seguir en Instagram">
-                <Instagram className="h-5 w-5" aria-hidden="true" />
+              <a
+                href="https://www.youtube.com/@ITLARD"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="YouTube"
+              >
+                <Youtube className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors" aria-label="Seguir en YouTube">
-                <Youtube className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors" aria-label="Seguir en LinkedIn">
-                <Linkedin className="h-5 w-5" aria-hidden="true" />
+              <a
+                href="https://www.linkedin.com/school/itla/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
 
-          {/* Navigation Column - Simplified as no specific sections found */}
+          {/* Navigation Column */}
           <div>
-            <h3 className="text-white font-bold mb-4">Navegación</h3>
+            <h3 className="text-white font-bold mb-4">Navegacion</h3>
             <ul className="space-y-2">
-              {/* Keeping a placeholder or general links */}
-              <li><Link href="/" className="text-gray-300 hover:text-primary transition-colors">Inicio</Link></li>
-              <li><Link href="/estudiante" className="text-gray-300 hover:text-primary transition-colors">Portal Estudiante</Link></li>
-              <li><Link href="/admin" className="text-gray-300 hover:text-primary transition-colors">Portal Administrativo</Link></li>
+              <li>
+                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
+                  Inicio
+                </Link>
+              </li>
+              <li>
+                <Link href="/estudiante" className="text-gray-300 hover:text-white transition-colors">
+                  Portal Estudiante
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin" className="text-white hover:text-gray-300 transition-colors">
+                  Portal Administrativo
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Legal Column - Removed as no specific pages found */}
+          {/* Support Team Column */}
           <div>
-            <h3 className="text-white font-bold mb-4">Legal</h3>
+            <h3 className="text-white font-bold mb-4">Equipo de Soporte</h3>
             <ul className="space-y-2">
-              {/* Keeping placeholder for legal if needed later, but no specific links */}
-              <li><a href="#" className="text-gray-300 hover:text-primary transition-colors">Política de Privacidad</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-primary transition-colors">Términos de Servicio</a></li>
+              {supportTeams.map((team) => {
+                const IconComponent = team.icon;
+                return (
+                  <li key={team.name} className="flex items-center gap-2">
+                    <IconComponent className="h-4 w-4 text-gray-500" />
+                    <span className="text-gray-400 text-sm">{team.name}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
-          {/* Contact Column */}
+          {/* Contact Column - Expanded */}
           <div>
             <h3 className="text-white font-bold mb-4">Contacto</h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-3">
-                <Mail className="h-5 w-5 flex-shrink-0 mt-0.5 text-secondary" />
+                <Mail className="h-5 w-5 flex-shrink-0 mt-0.5 text-gray-500" />
                 <div>
-                  <p className="text-sm text-gray-400">Email</p>
-                  <a href="mailto:soporte@itla.edu.do" className="text-gray-200 hover:text-primary hover:underline transition-colors">
+                  <p className="text-xs text-gray-500">Email</p>
+                  <a
+                    href="mailto:soporte@itla.edu.do"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
                     soporte@itla.edu.do
                   </a>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
-                <Phone className="h-5 w-5 flex-shrink-0 mt-0.5 text-secondary" />
+                <Phone className="h-5 w-5 flex-shrink-0 mt-0.5 text-gray-500" />
                 <div>
-                  <p className="text-sm text-gray-400">Teléfono</p>
-                  <a href="tel:+18097384852" className="text-gray-200 hover:text-primary hover:underline transition-colors">
+                  <p className="text-xs text-gray-500">Telefono</p>
+                  <a
+                    href="tel:+18097384852"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
                     (809) 738-4852
                   </a>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
-                <FaWhatsapp className="h-5 w-5 flex-shrink-0 mt-0.5 text-green-500" />
+                <FaWhatsapp className="h-5 w-5 flex-shrink-0 mt-0.5 text-gray-500" />
                 <div>
-                  <p className="text-sm text-gray-400">WhatsApp</p>
-                  <a href="https://wa.me/18097384852" target="_blank" rel="noopener noreferrer" className="text-gray-200 hover:text-primary hover:underline transition-colors">
-                     (809) 738-4852
+                  <p className="text-xs text-gray-500">WhatsApp</p>
+                  <a
+                    href="https://wa.me/18097384852"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    (809) 738-4852
                   </a>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-secondary" />
+                <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-gray-500" />
                 <div>
-                  <p className="text-sm text-gray-400">Ubicación</p>
-                  <p>Santo Domingo, República Dominicana</p>
+                  <p className="text-xs text-gray-500">Ubicacion</p>
+                  <a
+                    href="https://www.google.com/maps/place/Instituto+Tecnol%C3%B3gico+de+Las+Am%C3%A9ricas+(ITLA)/@18.4513293,-69.6626983,17z"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                  >
+                    La Caleta, Boca Chica
+                  </a>
+                  <p className="text-gray-400 text-xs">Republica Dominicana</p>
                 </div>
               </li>
             </ul>
@@ -108,16 +190,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-8 mt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
-              <p className="mb-1">© {currentYear} ITLA. Todos los derechos reservados.</p>
-            </div>
-            {/* Legal links removed as pages do not exist */}
-            <div className="flex space-x-6 text-sm">
-                <a href="#" className="text-gray-300 hover:text-primary transition-colors">Política de Privacidad</a>
-                <a href="#" className="text-gray-300 hover:text-primary transition-colors">Términos de Servicio</a>
-            </div>
+        <div className="border-t border-gray-700 pt-6 mt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-500 text-sm">
+              {currentYear} Instituto Tecnologico de Las Americas (ITLA). Todos los derechos reservados.
+            </p>
+            <p className="text-gray-600 text-xs mt-2 md:mt-0">
+              Sistema de Soporte Estudiantil v2.0
+            </p>
           </div>
         </div>
       </div>

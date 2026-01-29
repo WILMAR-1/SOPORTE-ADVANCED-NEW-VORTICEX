@@ -85,9 +85,9 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#002855] via-[#003876] to-[#004a99] flex flex-col">
+    <div className="min-h-screen bg-card flex flex-col">
       <header className="p-4">
-        <Link href="/" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
@@ -98,15 +98,15 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
       <div className="flex-1 flex items-center justify-center p-4">
         <div className="w-full max-w-md animate-fadeIn">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl shadow-xl mb-4">
-              <GraduationCap className="w-10 h-10 text-[#003876]" />
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#003d7f] rounded-2xl shadow-xl mb-4">
+              <GraduationCap className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-3xl font-black text-white">Portal Estudiante</h1>
-            <p className="text-blue-200 mt-2">Sistema de Soporte ITLA</p>
+            <h1 className="text-3xl font-black text-[#003d7f]">Portal Estudiante</h1>
+            <p className="text-muted-foreground mt-2">Sistema de Soporte ITLA</p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-            <div className="flex border-b border-slate-100">
+          <div className="bg-card rounded-3xl shadow-2xl overflow-hidden border">
+            <div className="flex border-b border-border">
               <button
                 type="button"
                 onClick={() => {
@@ -114,10 +114,10 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
                   setError(null)
                 }}
                 className={`flex-1 py-4 text-sm font-bold transition-colors ${
-                  isLogin ? "text-[#003876] border-b-2 border-[#003876]" : "text-slate-400 hover:text-slate-600"
+                  isLogin ? "text-[#003d7f] border-b-2 border-[#003d7f]" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                Iniciar Sesión
+                Iniciar Sesion
               </button>
               <button
                 type="button"
@@ -126,7 +126,7 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
                   setError(null)
                 }}
                 className={`flex-1 py-4 text-sm font-bold transition-colors ${
-                  !isLogin ? "text-[#003876] border-b-2 border-[#003876]" : "text-slate-400 hover:text-slate-600"
+                  !isLogin ? "text-[#003d7f] border-b-2 border-[#003d7f]" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 Registrarse
@@ -135,7 +135,7 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
 
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               {error && (
-                <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm font-medium border border-red-200 animate-fadeIn flex items-start gap-2">
+                <div className="bg-destructive/10 text-destructive p-4 rounded-xl text-sm font-medium border border-destructive/20 animate-fadeIn flex items-start gap-2">
                   <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
                   {error}
                 </div>
@@ -144,27 +144,27 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
               {!isLogin && (
                 <div className="grid grid-cols-2 gap-4 animate-fadeIn">
                   <div>
-                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">
+                    <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2">
                       Nombre
                     </label>
                     <input
                       type="text"
                       required
                       placeholder="Juan"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-slate-800 font-medium focus:ring-2 focus:ring-[#003876]/20 focus:border-[#003876] outline-none transition-all"
+                      className="w-full bg-input border-border rounded-xl py-3 px-4 text-foreground font-medium focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all"
                       value={formData.firstName}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">
+                    <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2">
                       Apellido
                     </label>
                     <input
                       type="text"
                       required
                       placeholder="Pérez"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-slate-800 font-medium focus:ring-2 focus:ring-[#003876]/20 focus:border-[#003876] outline-none transition-all"
+                      className="w-full bg-input border-border rounded-xl py-3 px-4 text-foreground font-medium focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all"
                       value={formData.lastName}
                       onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                     />
@@ -173,14 +173,14 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
               )}
 
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">
+                <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2">
                   Correo Institucional
                 </label>
                 <input
                   type="email"
                   required
                   placeholder="usuario@itla.edu.do"
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-slate-800 font-medium focus:ring-2 focus:ring-[#003876]/20 focus:border-[#003876] outline-none transition-all"
+                  className="w-full bg-input border-border rounded-xl py-3 px-4 text-foreground font-medium focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -189,28 +189,28 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
               {!isLogin && (
                 <>
                   <div>
-                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">
+                    <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2">
                       Matrícula
                     </label>
                     <input
                       type="text"
                       required
                       placeholder="2024-0000"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-slate-800 font-medium focus:ring-2 focus:ring-[#003876]/20 focus:border-[#003876] outline-none transition-all"
+                      className="w-full bg-input border-border rounded-xl py-3 px-4 text-foreground font-medium focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all"
                       value={formData.matricula}
                       onChange={(e) => setFormData({ ...formData, matricula: e.target.value })}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">
+                    <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2">
                       Correo Personal
                     </label>
                     <input
                       type="email"
                       required
                       placeholder="correo@gmail.com"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-slate-800 font-medium focus:ring-2 focus:ring-[#003876]/20 focus:border-[#003876] outline-none transition-all"
+                      className="w-full bg-input border-border rounded-xl py-3 px-4 text-foreground font-medium focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all"
                       value={formData.personalEmail}
                       onChange={(e) => setFormData({ ...formData, personalEmail: e.target.value })}
                     />
@@ -218,24 +218,24 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">
+                      <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2">
                         Teléfono
                       </label>
                       <input
                         type="tel"
                         required
                         placeholder="809-000-0000"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-slate-800 font-medium focus:ring-2 focus:ring-[#003876]/20 focus:border-[#003876] outline-none transition-all"
+                        className="w-full bg-input border-border rounded-xl py-3 px-4 text-foreground font-medium focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">
+                      <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2">
                         Carrera
                       </label>
                       <select
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-slate-800 font-medium focus:ring-2 focus:ring-[#003876]/20 focus:border-[#003876] outline-none transition-all"
+                        className="w-full bg-input border-border rounded-xl py-3 px-4 text-foreground font-medium focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all"
                         value={formData.career}
                         onChange={(e) => setFormData({ ...formData, career: e.target.value })}
                       >
@@ -251,7 +251,7 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
               )}
 
               <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-2">
+                <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2">
                   Contraseña
                 </label>
                 <div className="relative">
@@ -259,14 +259,14 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
                     type={showPassword ? "text" : "password"}
                     required
                     placeholder="••••••••"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 pr-12 text-slate-800 font-medium focus:ring-2 focus:ring-[#003876]/20 focus:border-[#003876] outline-none transition-all"
+                    className="w-full bg-input border-border rounded-xl py-3 px-4 pr-12 text-foreground font-medium focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all"
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -276,15 +276,15 @@ export default function StudentAuth({ onLogin }: StudentAuthProps) {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full py-4 bg-gradient-to-r from-[#003876] to-[#004a99] hover:from-[#002855] hover:to-[#003876] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-4 bg-[#003d7f] hover:bg-[#002855] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isLoading ? "Procesando..." : isLogin ? "Iniciar Sesión" : "Crear Cuenta"}
+                {isLoading ? "Procesando..." : isLogin ? "Iniciar Sesion" : "Crear Cuenta"}
               </button>
             </form>
 
-            <div className="border-t border-slate-100 p-4 bg-slate-50">
-              <p className="text-xs text-slate-500 text-center">
-                Contraseña por defecto: <span className="font-mono bg-white px-2 py-1 rounded">Itla2024!</span>
+            <div className="border-t border-border p-4 bg-card">
+              <p className="text-xs text-muted-foreground text-center">
+                Contraseña por defecto: <span className="font-mono bg-input px-2 py-1 rounded">Itla2024!</span>
               </p>
             </div>
           </div>

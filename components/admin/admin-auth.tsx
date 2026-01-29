@@ -43,10 +43,10 @@ export default function AdminAuth({ onLogin }: AdminAuthProps) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col">
+    <div className="min-h-screen bg-card flex flex-col">
       {/* Header */}
       <header className="p-4">
-        <Link href="/" className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
@@ -58,65 +58,65 @@ export default function AdminAuth({ onLogin }: AdminAuthProps) {
         <div className="w-full max-w-md animate-fadeIn">
           {/* Logo */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#f9b233] to-[#e6a020] rounded-2xl shadow-xl mb-4">
-              <Shield className="w-10 h-10 text-[#002855]" />
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#dc2626] rounded-2xl shadow-xl mb-4">
+              <Shield className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-3xl font-black text-white">Portal Administrativo</h1>
-            <p className="text-slate-400 mt-2">Sistema de Soporte ITLA</p>
+            <h1 className="text-3xl font-black text-[#dc2626]">Portal Administrativo</h1>
+            <p className="text-muted-foreground mt-2">Sistema de Soporte ITLA</p>
           </div>
 
           {/* Security Notice */}
-          <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 mb-6 flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
+          <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 mb-6 flex items-start gap-3">
+            <AlertTriangle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
             <div>
-              <p className="text-amber-400 text-sm font-medium">Acceso Restringido</p>
-              <p className="text-amber-400/70 text-xs mt-1">
+              <p className="text-primary text-sm font-medium">Acceso Restringido</p>
+              <p className="text-primary/80 text-xs mt-1">
                 Solo personal autorizado del ITLA. Todas las acciones son monitoreadas y registradas.
               </p>
             </div>
           </div>
 
           {/* Form Card */}
-          <div className="bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-700">
+          <div className="bg-card rounded-2xl shadow-2xl overflow-hidden border border-border">
             <form onSubmit={handleSubmit} className="p-6 space-y-5">
               {error && (
-                <div className="bg-red-500/10 text-red-400 p-4 rounded-xl text-sm font-medium border border-red-500/20 animate-fadeIn flex items-start gap-2">
+                <div className="bg-destructive/10 text-destructive p-4 rounded-xl text-sm font-medium border border-destructive/20 animate-fadeIn flex items-start gap-2">
                   <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
                   {error}
                 </div>
               )}
 
               <div>
-                <label className="block text-xs font-bold text-slate-400 uppercase tracking-wide mb-2">
+                <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2">
                   Correo Institucional
                 </label>
                 <input
                   type="email"
                   required
                   placeholder="usuario@itla.edu.do"
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl py-3.5 px-4 text-white font-medium focus:ring-2 focus:ring-[#f9b233]/20 focus:border-[#f9b233] outline-none transition-all placeholder:text-slate-500"
+                  className="w-full bg-input border-border rounded-xl py-3.5 px-4 text-foreground font-medium focus:ring-2 focus:ring-[#dc2626]/20 focus:border-[#dc2626] outline-none transition-all placeholder:text-muted-foreground"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-400 uppercase tracking-wide mb-2">
-                  Contraseña
+                <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wide mb-2">
+                  Contrasena
                 </label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
                     required
-                    placeholder="••••••••"
-                    className="w-full bg-slate-900 border border-slate-700 rounded-xl py-3.5 px-4 pr-12 text-white font-medium focus:ring-2 focus:ring-[#f9b233]/20 focus:border-[#f9b233] outline-none transition-all placeholder:text-slate-500"
+                    placeholder="********"
+                    className="w-full bg-input border-border rounded-xl py-3.5 px-4 pr-12 text-foreground font-medium focus:ring-2 focus:ring-[#dc2626]/20 focus:border-[#dc2626] outline-none transition-all placeholder:text-muted-foreground"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -126,24 +126,24 @@ export default function AdminAuth({ onLogin }: AdminAuthProps) {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full py-4 bg-gradient-to-r from-[#f9b233] to-[#e6a020] hover:from-[#e6a020] hover:to-[#d49010] text-[#002855] font-bold rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2"
+                className="w-full py-4 bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 <Lock className="w-5 h-5" />
-                {isLoading ? "Verificando credenciales..." : "Iniciar Sesión Segura"}
+                {isLoading ? "Verificando credenciales..." : "Iniciar Sesion Segura"}
               </button>
             </form>
 
-            <div className="border-t border-slate-700 p-5 bg-slate-800/50">
-              <p className="text-xs text-slate-500 text-center">
+            <div className="border-t border-border p-5 bg-card">
+              <p className="text-xs text-muted-foreground text-center">
                 Si no tiene credenciales de acceso, contacte al departamento de{" "}
-                <span className="text-[#f9b233] font-semibold">Supremo Digital</span> o{" "}
-                <span className="text-[#f9b233] font-semibold">Globalizador</span> para solicitar acceso.
+                <span className="text-secondary font-semibold">Supremo Digital</span> o{" "}
+                <span className="text-secondary font-semibold">Globalizador</span> para solicitar acceso.
               </p>
             </div>
           </div>
 
           {/* Footer */}
-          <p className="text-center text-slate-500 text-xs mt-6">
+          <p className="text-center text-muted-foreground text-xs mt-6">
             Instituto Tecnológico de Las Américas (ITLA) - Sistema de Soporte v2.0
           </p>
         </div>
