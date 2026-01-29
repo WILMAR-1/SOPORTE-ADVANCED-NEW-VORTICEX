@@ -174,10 +174,10 @@ export default function AdminPortal() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="animate-pulse-soft text-center">
-          <div className="w-16 h-16 bg-[#f9b233] rounded-2xl mx-auto mb-4"></div>
-          <p className="text-slate-400 font-medium">Cargando Sistema...</p>
+          <div className="w-16 h-16 bg-primary rounded-2xl mx-auto mb-4"></div>
+          <p className="text-muted-foreground font-medium">Cargando Sistema...</p>
         </div>
       </div>
     )
@@ -190,7 +190,7 @@ export default function AdminPortal() {
   const stats = canViewAllTickets(user.role) ? store.getStats() : store.getStatsForUser(user)
 
   return (
-    <div className="min-h-screen bg-slate-100 flex">
+    <div className="min-h-screen bg-background flex">
       <AdminSidebar
         user={user}
         currentView={currentView}

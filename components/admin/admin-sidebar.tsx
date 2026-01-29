@@ -28,11 +28,11 @@ export default function AdminSidebar({ user, currentView, onViewChange, isOpen, 
   ]
 
   return (
-    <aside className="w-64 bg-[#002855] flex flex-col min-h-screen">
+    <aside className="w-64 bg-card flex flex-col min-h-screen border-r border-border">
       {/* Logo */}
-      <div className="p-6 border-b border-white/10">
+      <div className="p-6 border-b border-border">
         <Link href="/" className="flex items-center gap-3">
-          <div className="bg-white p-2 rounded-lg">
+          <div className="bg-card p-2 rounded-lg border">
             <img
               src="https://itla.edu.do/wp-content/uploads/2021/05/Logo-ITLA.png"
               alt="ITLA Logo"
@@ -40,20 +40,20 @@ export default function AdminSidebar({ user, currentView, onViewChange, isOpen, 
             />
           </div>
           <div>
-            <h1 className="text-white font-bold text-sm">Panel Admin</h1>
-            <p className="text-blue-300 text-xs">Soporte ITLA</p>
+            <h1 className="text-foreground font-bold text-sm">Panel Admin</h1>
+            <p className="text-muted-foreground text-xs">Soporte ITLA</p>
           </div>
         </Link>
       </div>
 
       {/* User Info - Mostrar rol con badge de color */}
-      <div className="p-4 border-b border-white/10">
+      <div className="p-4 border-b border-border">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 bg-gradient-to-br from-[#f9b233] to-[#e6a020] rounded-xl flex items-center justify-center text-[#002855] font-bold text-lg shadow-lg">
+          <div className="w-11 h-11 bg-secondary rounded-xl flex items-center justify-center text-secondary-foreground font-bold text-lg shadow-lg">
             {user.name.charAt(0)}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-white font-semibold text-sm truncate">
+            <p className="text-foreground font-semibold text-sm truncate">
               {user.name} {user.lastName || ""}
             </p>
             <span
@@ -76,7 +76,7 @@ export default function AdminSidebar({ user, currentView, onViewChange, isOpen, 
               key={item.id}
               onClick={() => onViewChange(item.id)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all ${
-                isActive ? "bg-[#f9b233] text-[#002855] shadow-lg" : "text-blue-200 hover:bg-white/10"
+                isActive ? "bg-secondary text-secondary-foreground shadow-lg" : "text-muted-foreground hover:bg-muted"
               }`}
             >
               <Icon className="w-5 h-5" />
@@ -84,7 +84,7 @@ export default function AdminSidebar({ user, currentView, onViewChange, isOpen, 
               {item.badge !== undefined && item.badge > 0 && (
                 <span
                   className={`px-2 py-0.5 rounded-full text-xs font-bold ${
-                    isActive ? "bg-[#002855] text-white" : "bg-[#f9b233] text-[#002855]"
+                    isActive ? "bg-card text-secondary" : "bg-secondary text-secondary-foreground"
                   }`}
                 >
                   {item.badge}
@@ -96,23 +96,23 @@ export default function AdminSidebar({ user, currentView, onViewChange, isOpen, 
       </nav>
 
       {/* Stats Preview - Nuevos contadores */}
-      <div className="p-4 border-t border-white/10">
+      <div className="p-4 border-t border-border">
         <div className="grid grid-cols-2 gap-2">
-          <div className="bg-white/5 rounded-xl p-3 text-center">
-            <p className="text-2xl font-black text-white">{stats.open}</p>
-            <p className="text-xs text-blue-300">Abiertos</p>
+          <div className="bg-muted/50 rounded-xl p-3 text-center">
+            <p className="text-2xl font-black text-foreground">{stats.open}</p>
+            <p className="text-xs text-muted-foreground">Abiertos</p>
           </div>
-          <div className="bg-white/5 rounded-xl p-3 text-center">
-            <p className="text-2xl font-black text-[#f9b233]">{stats.inProgress}</p>
-            <p className="text-xs text-blue-300">En Proceso</p>
+          <div className="bg-muted/50 rounded-xl p-3 text-center">
+            <p className="text-2xl font-black text-primary">{stats.inProgress}</p>
+            <p className="text-xs text-muted-foreground">En Proceso</p>
           </div>
-          <div className="bg-white/5 rounded-xl p-3 text-center">
-            <p className="text-2xl font-black text-emerald-400">{stats.resolved}</p>
-            <p className="text-xs text-blue-300">Resueltos</p>
+          <div className="bg-muted/50 rounded-xl p-3 text-center">
+            <p className="text-2xl font-black text-green-500">{stats.resolved}</p>
+            <p className="text-xs text-muted-foreground">Resueltos</p>
           </div>
-          <div className="bg-white/5 rounded-xl p-3 text-center">
-            <p className="text-2xl font-black text-slate-300">{stats.todayResolved}</p>
-            <p className="text-xs text-blue-300">Hoy</p>
+          <div className="bg-muted/50 rounded-xl p-3 text-center">
+            <p className="text-2xl font-black text-slate-500">{stats.todayResolved}</p>
+            <p className="text-xs text-muted-foreground">Hoy</p>
           </div>
         </div>
       </div>
